@@ -13,7 +13,13 @@ pipeline {
                 }
             }
         }
-        
+        stage('Terraform Plan') {
+            steps {
+                withTerraform(terraformversion: '0.14.5') {
+                    plan()
+                }
+            }
+        }
 
     }
 }
