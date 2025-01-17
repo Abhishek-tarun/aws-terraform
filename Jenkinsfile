@@ -4,19 +4,19 @@ pipeline {
 
         stage('Initialize Terraform') {
             steps {
-                pwsh 'terraform init'
+                bat 'C:\\Program Files\\PowerShell\\7\\pwsh.exe -Command terraform init'
             }
         }
         
         stage('Plan Terraform') {
             steps {
-                pwsh 'terraform plan'
+                bat 'C:\\Program Files\\PowerShell\\7\\pwsh.exe -Command terraform plan'
             }
         }
         
         stage('Apply Terraform') {
             steps {
-                pwsh 'terraform apply -auto-approve'
+                bat 'C:\\Program Files\\PowerShell\\7\\pwsh.exe -Command terraform apply -auto-approve'
             }
         }
         
