@@ -1,11 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/Abhishek-tarun/aws-terraform.git'
-            }
-        }
+
         stage('Initialize Terraform') {
             steps {
                 sh 'terraform init'
