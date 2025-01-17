@@ -4,19 +4,19 @@ pipeline {
 
         stage('Initialize Terraform') {
             steps {
-                sh 'terraform init'
+                pwsh 'terraform init'
             }
         }
         
         stage('Plan Terraform') {
             steps {
-                sh 'terraform plan'
+                pwsh 'terraform plan'
             }
         }
         
         stage('Apply Terraform') {
             steps {
-                sh 'terraform apply -auto-approve'
+                pwsh 'terraform apply -auto-approve'
             }
         }
         
