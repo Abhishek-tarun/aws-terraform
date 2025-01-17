@@ -1,34 +1,28 @@
 pipeline {
     agent any
     stages {
-
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/Abhishek-tarun/aws-terraform.git'
+            }
+        }
         stage('Initialize Terraform') {
             steps {
-                withTerraform(terraformVersion: '0.14.5') {
-                    init()
-                }
+                sh terraform init
             }
         }
+        
         stage('Plan Terraform') {
             steps {
-                withTerraform(terraformVersion: '0.14.5') {
-                    plan()
-                }
+                sh terraform plan
             }
         }
+        
         stage('Apply Terraform') {
             steps {
-                withTerraform(terraformVersion: '0.14.5') {
-                    apply()
-                }
+                sh terraform apply -auto-approve
             }
         }
-    }
-    post {
-        always {
-            withTerraform(terraformVersion: '0.14.5') {
-                clean()
-            }
-        }
+        
     }
 }
