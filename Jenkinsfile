@@ -1,11 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout') {
-            steps {
-                git url: 'https://github.com/Abhishek-tarun/aws-terraform.git'
-            }
-        }
+
         stage('Initialize Terraform') {
             steps {
                 withTerraform(terraformVersion: '0.14.5') {
