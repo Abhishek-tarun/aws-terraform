@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/your-repo/your-project.git'
+                git url: 'https://github.com/Abhishek-tarun/aws-terraform.git'
             }
         }
         stage('Initialize Terraform') {
